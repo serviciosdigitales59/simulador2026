@@ -1,3 +1,4 @@
+
 async function verificarSesion() {
 
     const { data } = await supabaseClient.auth.getSession();
@@ -7,7 +8,8 @@ async function verificarSesion() {
         return;
     }
 
-    console.log("Usuario autenticado");
+    document.getElementById("nombreUsuario").textContent =
+        data.session.user.email;
 }
 
 verificarSesion();
